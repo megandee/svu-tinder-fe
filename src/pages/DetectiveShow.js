@@ -10,7 +10,14 @@ const DetectiveShow = () => {
    console.log(detective)
    return (
       <div>
+         <img src={detective ? detective.image : 'Detective not found'} alt="Detective" />
          <h1>{detective ? detective.name : 'Detective not found'}</h1>
+         <p>{detective ? detective.age : 'Detective not found'}</p>
+         <p>{detective ? detective.hobbies : 'Detective not found'}</p>
+         <p>{detective ? detective.interested : 'Detective not found'}</p>
+         <p>{detective ? detective.pronouns : 'Detective not found'}</p>
+         <p>{detective ? detective.quotes : 'Detective not found'}</p>
+         <p>{detective ? detective.cases : 'Detective not found'}</p>
       </div>
    )
 }

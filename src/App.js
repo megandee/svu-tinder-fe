@@ -12,6 +12,16 @@ import mockDetectives from './mockDetectives'
 
 function App() {
   const [detectives, setDetectives] = useState(mockDetectives);
+  
+  const createDetective = (newDetective) => {
+    setDetectives([...detectives, newDetective])
+    console.log(detectives)
+  }
+
+  const updateDetective = (detective, id) => {
+    setDetectives(detectives.map((detective) => detective.id === id ? detective : detective))
+
+  }
 
   useEffect(() => {
     // Fetch detectives from an API or other source here
@@ -22,10 +32,10 @@ function App() {
     <Header />
     <Routes>
     <Route path="/" element={<Home />} />
-    <Route path="/detectiveedit" element={<DetetectiveEdit />} />
+    <Route path="/detectiveedit" element={<DetetectiveEdit detectives={detectives} updateDetective={updateDetective} />} />
     <Route path="/detectiveindex" element={<DetetectiveIndex detectives={detectives} />} />
-    <Route path="/detectivenew" element={<DetetectiveNew />} />
-    <Route path="/detectiveshow/:id" element={<DetetectiveShow />} />
+    <Route path="/detectivenew" element={<DetetectiveNew createDetective={createDetective} />} />
+    <Route path="/detectiveshow/:id" element={<DetetectiveShow detectives={detectives}/>} />
     <Route path="*" element={<NotFound />} />
     </Routes>
     <Footer />
