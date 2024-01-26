@@ -1,17 +1,12 @@
 import React from 'react'
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap'
-import mockDetectives from '../mockDetectives'
 import { NavLink } from 'react-router-dom'
 
 const DetectiveIndex = ({ detectives }) => {
-   if (!mockDetectives.length) {
-      return <div>Loading...</div>;
-   }
-   console.log(detectives)
    return (
       <main>
          <h1>SVU Tinder</h1>
-         {mockDetectives?.map((detective, index) => {
+         {detectives.map((detective, index) => {
             return (
                <Card
                   style={{

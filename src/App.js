@@ -8,34 +8,76 @@ import DetetectiveNew from './pages/DetectiveNew'
 import DetetectiveShow from './pages/DetectiveShow'
 import NotFound from './pages/NotFound'
 import { Routes, Route } from "react-router-dom"
-import mockDetectives from './mockDetectives'
 
 function App() {
-  const [detectives, setDetectives] = useState(mockDetectives);
-  
-  const createDetective = (newDetective) => {
-    setDetectives([...detectives, newDetective])
-    console.log(detectives)
-  }
-
-  const updateDetective = (detective, id) => {
-    setDetectives(detectives.map((detective) => detective.id === id ? detective : detective))
-
-  }
+  const [detectives, setDetectives] = useState([]);
 
   useEffect(() => {
-    // Fetch detectives from an API or other source here
-    // Then update the state with setDetectives
-  }, []);
+    readDetective()
+  }, [])
+
+const readDetective = () => {
+  fetch("http://localhost:3000/detectives")
+  .then((response) => response.json())
+  .then((payload) => {
+    console.log(payload);
+    setDetectives(payload);
+    console.log(detectives)
+  })
+  .catch((error) => console.log(error))
+}
+
+const createDetective = (detective) => {
+  fetch("http://localhost:3000/detectives", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(detective),
+  })
+  .then((response) => response.json())
+  .then(() => readDetective())
+  .catch((error) => console.log(error))
+}
+
+const updateDetective = (detective, id) => {
+  fetch(`http://localhost:3000/detectives/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(detective),
+  })
+  .then((response) => response.json())
+  .then(() => readDetective())
+  .catch((error) => console.log(error))
+}
+
+const deleteDetective = (id) => {
+  fetch(`http://localhost:3000/detectives/${id}`, {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "DELETE"
+  })
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    // No need to parse the response as JSON since it's a DELETE request
+  })
+  .then(() => readDetective())
+  .catch((errors) => console.log("delete errors:", errors))
+}
   return (
     <>
     <Header />
     <Routes>
     <Route path="/" element={<Home />} />
-    <Route path="/detectiveedit" element={<DetetectiveEdit detectives={detectives} updateDetective={updateDetective} />} />
     <Route path="/detectiveindex" element={<DetetectiveIndex detectives={detectives} />} />
+    <Route path="/detectiveshow/:id" element={<DetetectiveShow detectives={detectives} deleteDetective={deleteDetective} />} />
     <Route path="/detectivenew" element={<DetetectiveNew createDetective={createDetective} />} />
-    <Route path="/detectiveshow/:id" element={<DetetectiveShow detectives={detectives}/>} />
+    <Route path="/detectiveedit/:id" element={<DetetectiveEdit detectives={detectives} updateDetective={updateDetective} />} />
     <Route path="*" element={<NotFound />} />
     </Routes>
     <Footer />
