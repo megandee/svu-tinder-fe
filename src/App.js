@@ -8,9 +8,10 @@ import DetetectiveNew from './pages/DetectiveNew'
 import DetetectiveShow from './pages/DetectiveShow'
 import NotFound from './pages/NotFound'
 import { Routes, Route } from "react-router-dom"
+import mockDetectives from './mockDetectives'
 
 function App() {
-  const [detectives, setDetectives] = useState([]);
+  const [detectives, setDetectives] = useState(mockDetectives);
 
   useEffect(() => {
     // Fetch detectives from an API or other source here
@@ -24,7 +25,7 @@ function App() {
     <Route path="/detectiveedit" element={<DetetectiveEdit />} />
     <Route path="/detectiveindex" element={<DetetectiveIndex detectives={detectives} />} />
     <Route path="/detectivenew" element={<DetetectiveNew />} />
-    <Route path="/detectiveshow" element={<DetetectiveShow />} />
+    <Route path="/detectiveshow/:id" element={<DetetectiveShow />} />
     <Route path="*" element={<NotFound />} />
     </Routes>
     <Footer />

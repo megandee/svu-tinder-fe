@@ -28,6 +28,16 @@
   color: #61dafb;
 }
 
+.card {
+  margin: 2rem 0;
+}
+
+.cat-index-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

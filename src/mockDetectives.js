@@ -1,15 +1,17 @@
 const detectives = [
     {
+        id: 0,
         name: 'Olivia Benson',
-    age: 31,
-    hobbies: 'quad-lingual, advocacy, blazers, self-defense',
-    interested: 'Men' ,
-    pronouns: 'she/her',
-    quotes: 'It is Detective, not Miss. Save your lawyering for someone who gives a damn.',
-    cases: 'Undercover',
-    image: 'https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/newscms/2019_39/1486836/olivia-benson-season-01-today-inline-190926-03.jpg'
+        age: 31,
+        hobbies: 'quad-lingual, advocacy, blazers, self-defense',
+        interested: 'Men' ,
+        pronouns: 'she/her',
+        quotes: 'It is Detective, not Miss. Save your lawyering for someone who gives a damn.',
+        cases: 'Undercover',
+        image: 'https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/newscms/2019_39/1486836/olivia-benson-season-01-today-inline-190926-03.jpg'
     },
     {
+        id: 1,
         name: 'Elliot Stabler',
         age: 33,
         hobbies: 'Architecture, A-positive, gun show, Olivia Benson',
@@ -20,6 +22,7 @@ const detectives = [
         image: 'https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/newscms/2019_39/1486836/olivia-benson-season-01-today-inline-190926-03.jpg'
       },
       {
+        id: 2,
         name: 'John Munch',
         age: 53,
         hobbies: 'getting divorced, being a sergeant, conspiracy theories',
@@ -30,6 +33,7 @@ const detectives = [
         image: 'https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/newscms/2019_39/1486836/olivia-benson-season-01-today-inline-190926-03.jpg'
       },
       {
+        id: 3,
         name: 'Odafin Tutuola',
         age: 37,
         hobbies: 'bling, being mad at Stabler, ',
