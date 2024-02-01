@@ -1,13 +1,28 @@
-import React from 'react'
+import React from "react"
+import { Nav, NavItem } from "reactstrap"
+import { NavLink } from "react-router-dom"
 
-const Header = ({ isHomePage }) => {
-   if (isHomePage) {
-      return null;
-   }
-   
+const Header = () => {
    return (
-    <div>Header</div>
+     <Nav>
+       <NavItem>
+         <NavLink to="/" className="nav-link">
+           Home
+         </NavLink>
+       </NavItem>
+       <NavItem>
+         <NavLink to="/detectiveindex" className="nav-link">
+         Detectives
+         </NavLink>
+       </NavItem>
+       <NavItem>
+         <NavLink to="/detectivenew" className="nav-link">
+         Add Profile
+         </NavLink>
+       </NavItem>
+     </Nav>
+   
    )
-}
-
-export default Header 
+ }
+ 
+ export default Header

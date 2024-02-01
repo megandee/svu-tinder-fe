@@ -1,8 +1,11 @@
 import React from 'react'
+import './NotFound.scss'
 
 const NotFound = () => {
    return (
-    <div>NotFound</div>
+    <div className="container">
+      Find yourself, before you wreck yourself
+    </div>
    )
 }
 

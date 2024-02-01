@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -36,6 +41,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.footer {
+  position: fixed; 
+  bottom: 0; 
+  width: 100%; 
+  max-height: 60px;
 }
 
 @keyframes App-logo-spin {
