@@ -1,6 +1,10 @@
 import React from 'react'
 
-const Header = () => {
+const Header = ({ isHomePage }) => {
+   if (isHomePage) {
+      return null;
+   }
+   
    return (
     <div>Header</div>
    )
