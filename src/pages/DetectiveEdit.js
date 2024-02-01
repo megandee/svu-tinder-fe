@@ -15,7 +15,7 @@ const DetectiveEdit = ({detectives, updateDetective}) => {
       pronouns: currentDetective ? currentDetective.pronouns : '',
       quotes: currentDetective ? currentDetective.quotes : '',
       cases: currentDetective ? currentDetective.cases : '',
-      image: ''
+      image: currentDetective ? currentDetective.image : '',
    }))
 
    const handleChange = (event) => {
