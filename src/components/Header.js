@@ -1,10 +1,11 @@
 import React from "react"
 import { Nav, NavItem } from "reactstrap"
 import { NavLink } from "react-router-dom"
+import "./Header.scss"
 
 const Header = () => {
    return (
-     <Nav>
+     <Nav className="header-bar">
        <NavItem>
          <NavLink to="/" className="nav-link">
            Home
